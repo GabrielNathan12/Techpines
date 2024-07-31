@@ -1,8 +1,11 @@
 import { useState } from "react"
-import { FaLock, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import { TextField, Button, Alert, IconButton, InputAdornment } from '@mui/material';
 import { Link } from "react-router-dom";
 import Api from '../../services/api.js'
+import { useNavigate } from 'react-router-dom';
+
 export const Login = () => {
 
     const [email, setEmail] = useState("")
@@ -11,6 +14,7 @@ export const Login = () => {
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const { login } = Api()
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -23,7 +27,10 @@ export const Login = () => {
 
             localStorage.setItem('token', token)
 
-   
+            setTimeout(()=>{
+                navigate('/')
+            }, 2000)
+            
         } catch (error) {
             setErrorMessage('Por favor check suas credenciais.')
             setSuccessMessage('')
@@ -41,7 +48,7 @@ export const Login = () => {
                 {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
                 
                 <div className="input-field">
-                    <FaUser className="icon" />
+                    <MdEmail className="icon" />
                     <TextField label="E-mail" variant="filled" type="email" required onChange={(e) => setEmail(e.target.value)} 
                         InputProps={{
                             disableUnderline: true
