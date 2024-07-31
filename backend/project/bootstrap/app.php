@@ -23,6 +23,11 @@ return Application::configure(basePath: dirname(__DIR__))
 
         //
     })
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->validateCsrfTokens(except: [
+            'http://localhost:3000',
+        ]);
+    })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function(AuthenticationException $erro) {
 
@@ -31,3 +36,5 @@ return Application::configure(basePath: dirname(__DIR__))
             ], 400);
         });
     })->create();
+
+    
