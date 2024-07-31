@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { AiTwotoneDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
-import { Alert } from '@mui/material';
+import { Alert, Button, TextField } from '@mui/material';
 import { IoMdAddCircle } from "react-icons/io";
 import Api from '../../services/api';
 import './Dashboard.css';
@@ -112,7 +112,7 @@ export const Dashboard = () => {
 
     return (
         <div className="dashboard-container">
-            <h1>Dashboard</h1>
+            <h1 className="title-dashboard">Tião Carreiro e Pardinho 🤠</h1>
             {successMessage && <Alert severity="success">{successMessage}</Alert>}
             {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
                 
@@ -123,8 +123,8 @@ export const Dashboard = () => {
                 {albums.map(album => (
                     <div className="album-card" key={album.id}>
                         <div className="album-card-icons">
-                            <AiTwotoneDelete className="icon" onClick={()=> handleDeleteAlbum(album.id)}/>
-                            <FaEdit className="icon" onClick={() => handleEdit(album)} />
+                            <AiTwotoneDelete className="icon delete" onClick={() => handleDeleteAlbum(album.id)} />
+                            <FaEdit className="icon edit" onClick={() => handleEdit(album)} />
                         </div>
                         <Link to={`/album/${album.id}`} className="album-card-link">
                             <div className="album-card-content">
@@ -141,14 +141,14 @@ export const Dashboard = () => {
                 <form onSubmit={handleAddAlbum}>
                     <label>
                         Nome do Álbum:
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                        <TextField type="text" value={name} onChange={(e) => setName(e.target.value)} required />
                     </label>
                     <label>
                         Data de Lançamento:
-                        <input type="date" value={releaseDate} onChange={(e) => setReleaseDate(e.target.value)} required />
+                        <TextField type="date" value={releaseDate} onChange={(e) => setReleaseDate(e.target.value)} required />
                     </label>
-                    <button type="submit">Adicionar Álbum</button>
-                    <button type="button" onClick={() => setModalOpen(false)}>Cancelar</button>
+                    <Button type="submit">Adicionar Álbum</Button>
+                    <Button type="button" onClick={() => setModalOpen(false)}>Cancelar</Button>
                 </form>
             </Modal>
             <Modal isOpen={editModalOpen} onRequestClose={() => setEditModalOpen(false)} contentLabel="Editar Álbum" className="modal" 
@@ -157,14 +157,14 @@ export const Dashboard = () => {
                 <form onSubmit={handleUpdateAlbum}>
                     <label>
                         Nome do Álbum:
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                        <TextField type="text" value={name} onChange={(e) => setName(e.target.value)} required />
                     </label>
                     <label>
                         Data de Lançamento:
-                        <input type="date" value={releaseDate} onChange={(e) => setReleaseDate(e.target.value)} required />
+                        <TextField type="date" value={releaseDate} onChange={(e) => setReleaseDate(e.target.value)} required />
                     </label>
-                    <button type="submit">Atualizar Álbum</button>
-                    <button type="button" onClick={() => setEditModalOpen(false)}>Cancelar</button>
+                    <Button type="submit">Atualizar Álbum</Button>
+                    <Button type="button" onClick={() => setEditModalOpen(false)}>Cancelar</Button>
                 </form>
                 {successMessage && <p>{successMessage}</p>}
                 {errorMessage && <p>{errorMessage}</p>}

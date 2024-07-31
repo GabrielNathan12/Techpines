@@ -6,6 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import { Alert } from '@mui/material';
 import { IoMdAddCircle } from "react-icons/io";
 import Modal from 'react-modal';
+import "./Tracks.css"
 
 Modal.setAppElement('#root');
 
@@ -128,21 +129,29 @@ export const Tracks = () => {
 
     return (
         <div className="tracks-container">
-            <h1>Músicas</h1>
+            <div className="title-and-add-button">
+                <h1>Músicas</h1>
+                <div className="add-tracks-card" onClick={() => setModalOpen(true)}>
+                    <IoMdAddCircle className="add-icon" />
+                </div>
+            </div>
             {successMessage && <Alert severity="success">{successMessage}</Alert>}
             {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
-            <div className="add-tracks-card" onClick={() => setModalOpen(true)}>
-                <IoMdAddCircle className="add-icon" />
-            </div>
-            <div className="track-list">
-                <div>
-                    {tracks.map(track => (
-                        <li key={track.id}>
-                            {track.name} - {track.letter} - {track.duration}
-                            <FaEdit onClick={() => handleEdit(track)} />
-                            <AiTwotoneDelete onClick={() => handleDeleteTrack(track.id)}/>
-                        </li>
-                    ))}
+            <div className="track-list-container">
+                <div className="track-list">
+                    <ul>
+                        {tracks.map(track => (
+                            <li key={track.id}>
+                                <div className="track-details">
+                                    <span>{track.name} - {track.duration}</span>
+                                </div>
+                                <div>
+                                    <FaEdit className="icon edit" onClick={() => handleEdit(track)} />
+                                    <AiTwotoneDelete className="icon delete" onClick={() => handleDeleteTrack(track.id)} />
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
             <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)} contentLabel="Adicionar uma nova música" className="modal" overlayClassName="modal-overlay">
@@ -162,7 +171,7 @@ export const Tracks = () => {
                     </label>
                     <label>
                         Letra:
-                        <input type="text" value={letter} onChange={(e) => setLetter(e.target.value)} />
+                        <textarea className="modal-textarea" value={letter} onChange={(e) => setLetter(e.target.value)} />
                     </label>
                     <button type="submit">Adicionar Música</button>
                     <button type="button" onClick={() => setModalOpen(false)}>Cancelar</button>
@@ -186,7 +195,7 @@ export const Tracks = () => {
                         </label>
                         <label>
                             Letra:
-                            <input type="text" value={currentTrack.letter} onChange={(e) => setCurrentTrack({ ...currentTrack, letter: e.target.value })} />
+                            <textarea className="modal-textarea" value={currentTrack.letter} onChange={(e) => setCurrentTrack({ ...currentTrack, letter: e.target.value })} />
                         </label>
                         <button type="submit">Atualizar Música</button>
                         <button type="button" onClick={() => setEditModalOpen(false)}>Cancelar</button>

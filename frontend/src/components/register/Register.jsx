@@ -4,6 +4,7 @@ import { TextField, Button, Alert, IconButton, InputAdornment } from '@mui/mater
 import { MdEmail } from "react-icons/md";
 import Api from '../../services/api.js'
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export const Register = () => {
     const [name, setName] = useState("")
@@ -41,6 +42,7 @@ export const Register = () => {
     return (
         <div className="container">
             <form onSubmit={handleSubmit}>
+                <h1>Techpines</h1>
                 {successMessage && <Alert severity="success">{successMessage}</Alert>}
                 {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
 
@@ -91,6 +93,9 @@ export const Register = () => {
                     />
                 </div>
                 <Button type="submit">Cadastrar</Button>
+                <div className="signup">
+                    <Link to={'/'}>Pagina de Login</Link>
+                </div>
             </form>
         </div>
     )
