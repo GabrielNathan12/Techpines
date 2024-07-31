@@ -25,8 +25,10 @@ export const Login = () => {
             setSuccessMessage("Login realizado com Sucesso")
             setErrorMessage("")
             const token = response.data.token
+            const email_user = response.data.email
 
             localStorage.setItem('token', token)
+            localStorage.setItem('email', email_user)
 
             setTimeout(()=>{
                 navigate('/dashboard')
@@ -36,9 +38,6 @@ export const Login = () => {
             setErrorMessage('Por favor check suas credenciais.')
             setSuccessMessage('')
         }
-        
-
-
     }
 
     return (

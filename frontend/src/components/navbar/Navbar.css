@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+.navbar-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.navbar-icon:hover {
+    color: #118b5c;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column; 
+        padding: 20px;
+    }
+
+    .navbar-icon {
+        margin: 10px 0;
+    }
+}

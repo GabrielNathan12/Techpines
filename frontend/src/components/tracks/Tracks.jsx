@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Api from '../../services/api';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AiTwotoneDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { Alert } from '@mui/material';
 import { IoMdAddCircle } from "react-icons/io";
 import Modal from 'react-modal';
 import "./Tracks.css"
+import Navbar from "../navbar/Navbar";
 
 Modal.setAppElement('#root');
 
@@ -106,10 +107,10 @@ export const Tracks = () => {
             const filtered = response.data.filter(track => track.album_id === parseInt(albumId));
             setTracks(filtered);
 
-            setSuccessMessage('Álbum deletado com sucesso')
+            setSuccessMessage('Música deletado com sucesso')
             setErrorMessage('')
         } catch (error) {
-            setErrorMessage('Não foi possível deletar o álbum.');
+            setErrorMessage('Não foi possível deletar o Música.');
             setSuccessMessage('')
         }
     }
@@ -128,9 +129,10 @@ export const Tracks = () => {
     };
 
     return (
-        <div className="tracks-container">
+        <div className="track-detail-container">
             <div className="title-and-add-button">
                 <h1>Músicas</h1>
+                <Navbar/>
                 <div className="add-tracks-card" onClick={() => setModalOpen(true)}>
                     <IoMdAddCircle className="add-icon" />
                 </div>
@@ -143,7 +145,9 @@ export const Tracks = () => {
                         {tracks.map(track => (
                             <li key={track.id}>
                                 <div className="track-details">
+                                <Link to={`/track/${track.id}`} className="track-detail-list">
                                     <span>{track.name} - {track.duration}</span>
+                                </Link>
                                 </div>
                                 <div>
                                     <FaEdit className="icon edit" onClick={() => handleEdit(track)} />

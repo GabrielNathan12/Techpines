@@ -9,7 +9,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
 .container {
     background: #fff;
     padding: 2rem;
@@ -20,18 +19,15 @@ body {
     box-sizing: border-box;
 }
 
-
 form {
     display: flex;
     flex-direction: column;
 }
 
-
 h1 {
     text-align: center;
     margin-bottom: 1rem;
 }
-
 
 .input-field {
     display: flex;
@@ -41,13 +37,12 @@ h1 {
 
 .icon {
     margin-right: 0.5rem;
-    color: #555; 
+    color: #555;
 }
 
 .MuiTextField-root {
     flex: 1;
 }
-
 
 button[type="submit"] {
     background-color: #118b5c;
@@ -61,6 +56,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #05441d;
+    transform: scale(1.02);
 }
 
 .signup {
@@ -76,4 +72,58 @@ button[type="submit"]:hover {
 
 .signup a:hover {
     color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-field {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .input-field {
+        margin-bottom: 0.75rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .signup {
+        font-size: 0.9rem;
+    }
+
+    .signup a {
+        font-size: 0.9rem;
+    }
 }

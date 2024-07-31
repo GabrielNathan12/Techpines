@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { AiTwotoneDelete } from "react-icons/ai";
-import { FaEdit } from "react-icons/fa";
-import { Alert, Button, TextField } from '@mui/material';
-import { IoMdAddCircle } from "react-icons/io";
-import Api from '../../services/api';
-import './Dashboard.css';
-import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
+import { AiTwotoneDelete } from "react-icons/ai"
+import { FaEdit } from "react-icons/fa"
+import { Alert, Button, TextField } from '@mui/material'
+import { IoMdAddCircle } from "react-icons/io"
+import Api from '../../services/api'
+import './Dashboard.css'
+import Modal from 'react-modal'
+import { Link } from 'react-router-dom'
+import Navbar from "../navbar/Navbar"
+import SearchBar from "../searchbar/SearchBar"
+import { BiMessageSquareDetail } from "react-icons/bi"
 
-Modal.setAppElement('#root'); 
+Modal.setAppElement('#root')
 
 export const Dashboard = () => {
     const navigate = useNavigate()
@@ -109,10 +112,16 @@ export const Dashboard = () => {
         setEditModalOpen(true)
     }
 
+    const handleDetail = (id) => {
+        navigate(`/album/detail/${id}`)
+    }
 
     return (
         <div className="dashboard-container">
             <h1 className="title-dashboard">Tião Carreiro e Pardinho 🤠</h1>
+
+            <Navbar />
+            <SearchBar />
             {successMessage && <Alert severity="success">{successMessage}</Alert>}
             {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
                 
@@ -125,6 +134,7 @@ export const Dashboard = () => {
                         <div className="album-card-icons">
                             <AiTwotoneDelete className="icon delete" onClick={() => handleDeleteAlbum(album.id)} />
                             <FaEdit className="icon edit" onClick={() => handleEdit(album)} />
+                            <BiMessageSquareDetail className="icon datail" onClick={() => handleDetail(album.id)}/>
                         </div>
                         <Link to={`/album/${album.id}`} className="album-card-link">
                             <div className="album-card-content">

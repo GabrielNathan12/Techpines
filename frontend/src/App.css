@@ -1,3 +1,9 @@
+/* App.css */
+.app {
+    position: relative; /* Garante que a SearchBar seja posicionada corretamente */
+}
+
+
 .modal {
     position: absolute;
     top: 50%;
