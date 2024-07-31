@@ -145,3 +145,8 @@
     max-width: 500px;
     margin: auto;
 }
+
+.album-card-link {
+    text-decoration: none;
+    color: inherit;
+}

@@ -7,6 +7,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import Api from '../../services/api';
 import './Dashboard.css';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 
 Modal.setAppElement('#root'); 
 
@@ -125,10 +126,12 @@ export const Dashboard = () => {
                             <AiTwotoneDelete className="icon" onClick={()=> handleDeleteAlbum(album.id)}/>
                             <FaEdit className="icon" onClick={() => handleEdit(album)} />
                         </div>
-                        <div className="album-card-content">
-                            <p>{album.name}</p>
-                            <p>{album.release_date}</p>
-                        </div>
+                        <Link to={`/album/${album.id}`} className="album-card-link">
+                            <div className="album-card-content">
+                                <p>{album.name}</p>
+                                <p>{album.release_date}</p>
+                            </div>
+                        </Link>
                     </div>
                 ))}
             </div>

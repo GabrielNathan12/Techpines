@@ -57,7 +57,50 @@ const Api = () => {
         });
     }
 
-    return {Api ,login, register, fetchAllAlbums, addAlbum, updateAlbum, deleteAlbum}
+    const fetchAllTracks = (token) => {
+        return api.get('api/tracks', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            } 
+        })
+    }
+
+    const addTrack = (token, name, letter, duration, album_id) => {
+        return api.post('api/tracks' , {
+            "name": name, 
+            "duration": duration,
+            "letter": letter,
+            "album_id": album_id
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    }
+    const updateTrack = (token, id, name, letter, duration, album_id) => {
+        return api.put(`api/tracks/${id}` , {
+            "name": name, 
+            "duration": duration,
+            "letter": letter,
+            "album_id": album_id
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    }
+
+    const deleteTrack = (token, id) => {
+        return api.delete(`api/tracks/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    }
+    return { Api ,login, register, 
+            fetchAllAlbums, addAlbum, updateAlbum, deleteAlbum,
+            fetchAllTracks, addTrack, updateTrack, deleteTrack
+        }
 }
 
 export default Api
