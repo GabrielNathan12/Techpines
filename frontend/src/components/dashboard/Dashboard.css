@@ -1,0 +1,147 @@
+/* CSS para a página do Dashboard */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.album-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.album-card, .add-album-card {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 16px;
+    width: calc(20% - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.album-card-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.album-card-content {
+    margin-top: 16px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.add-album-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(217, 8, 8, 0.1);
+    padding: 16px;
+    width: calc(20% - 16px);
+    margin-bottom: 20px; 
+}
+.add-icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.album-card, .add-album-card {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 16px;
+    width: calc(15% - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.album-card-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.album-card-content {
+    margin-top: 16px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.add-album-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+}

@@ -28,8 +28,8 @@ export const Login = () => {
             localStorage.setItem('token', token)
 
             setTimeout(()=>{
-                navigate('/')
-            }, 2000)
+                navigate('/dashboard')
+            }, 200)
             
         } catch (error) {
             setErrorMessage('Por favor check suas credenciais.')
