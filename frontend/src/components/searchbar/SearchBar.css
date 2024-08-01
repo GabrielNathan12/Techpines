@@ -1,0 +1,81 @@
+.search-bar {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    padding: 20px;
+    background-color: transparent; 
+    width: 300px;
+    z-index: 1000;   
+    border: 1px solid transparent; 
+    border-radius: 8px; 
+}
+
+.search-bar .MuiTextField-root {
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.search-bar .MuiInputLabel-root {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.search-bar .MuiInputLabel-root.Mui-focused {
+    color: transparent; 
+}
+
+.search-bar .MuiInputBase-input {
+    transition: background-color 0.3s ease; 
+}
+
+.search-bar .MuiInputBase-input:focus {
+    background-color: transparent;
+}
+
+.search-bar .MuiList-root {
+    max-height: 400px;
+    overflow-x: auto;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.search-bar .MuiListItem-root {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.search-bar .MuiListItem-root:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .search-bar {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .search-bar .MuiList-root {
+        max-height: 300px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        top: 60px;
+    }
+}

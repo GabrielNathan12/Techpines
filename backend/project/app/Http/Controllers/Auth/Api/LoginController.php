@@ -22,7 +22,8 @@ class LoginController extends Controller
             $token = $request->user()->createToken('api')->plainTextToken;
 
             return response()->json([
-                'token' => $token
+                'token' => $token,
+                'email' => $request->email
             ], 200);
         }
         else{

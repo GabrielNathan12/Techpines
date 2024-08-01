@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282727;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(66, 99, 78, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    margin-right: 0.5rem;
+    color: #555;
+}
+
+.MuiTextField-root {
+    flex: 1;
+}
+
+button[type="submit"] {
+    background-color: #118b5c;
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #05441d;
+    transform: scale(1.02);
+}
+
+.signup {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.signup a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.signup a:hover {
+    color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-field {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .input-field {
+        margin-bottom: 0.75rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .signup {
+        font-size: 0.9rem;
+    }
+
+    .signup a {
+        font-size: 0.9rem;
+    }
+}
