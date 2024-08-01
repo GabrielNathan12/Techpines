@@ -52,11 +52,17 @@ export const UserProfile = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         const token = localStorage.getItem('token')
+        
         if (password !== confirmPassword) {
             setErrorMessage("As senhas não conferem")
             return
         }
 
+        if (password.length < 8) {
+            setErrorMessage("A senha deve ter pelo menos 8 caracteres.");
+            return;
+        }
+        
         try {
             await updateUser(token, user.id, name, email, password)
             setSuccessMessage("Dados atualizados com sucesso")

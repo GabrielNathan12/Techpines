@@ -25,7 +25,10 @@ export const Register = () => {
             setErrorMessage("As senhas não conferem")
             return
         }
-
+        if (password.length < 8) {
+            setErrorMessage("A senha deve ter pelo menos 8 caracteres.");
+            return;
+        }
         try {
             await register(name, email, password)
             setSuccessMessage("Registro realizado com sucesso")
